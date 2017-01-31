@@ -1,0 +1,37 @@
+{
+  "name": "queue-jobs",
+  "version": "1.0.0",
+  "description": "Queue jobs and execute them in parallel or sequentially.",
+  "main": "build/queue.js",
+  "typings": "build/queue",
+  "scripts": {
+    "test": "npm run build; mocha build/test.js",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akdor1154/node-queue-jobs.git"
+  },
+  "keywords": [
+    "queue",
+    "job",
+    "jobs",
+    "task",
+    "tasks",
+    "async",
+    "parallel",
+    "promise"
+  ],
+  "author": "Jarrad Whitaker <github.com/akdor1154>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akdor1154/node-queue-jobs/issues"
+  },
+  "homepage": "https://github.com/akdor1154/node-queue-jobs#readme",
+  "devDependencies": {
+    "@types/mocha": "^2.2.33",
+    "@types/node": "0.0.2",
+    "mocha": "^3.2.0",
+    "typescript": "^2.1.4"
+  }
+}
