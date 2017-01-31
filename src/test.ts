@@ -10,12 +10,12 @@ function wait(ms: number) {
 }
 
 describe('Queue', () => {
-	it('should execute all synchronous tasks sequentially', () => {
+	it('should execute all immediate tasks sequentially', () => {
 		const q = new Queue(1);
 
 		const results: number[] = [];
 		for (let i = 0; i < 10; i++) {
-			q.do(() => results.push(i));
+			q.doAsync(() => results.push(i));
 		}
 
 		return q.whenEmpty()
@@ -31,7 +31,7 @@ describe('Queue', () => {
 
 		const results: number[] = [];
 		for (let i = 0; i < 10; i++) {
-			q.doAsync(() =>
+			q.do(() =>
 				wait(5)
 				.then( () => {
 					results.push(i)
@@ -50,15 +50,15 @@ describe('Queue', () => {
 		});
 	});
 
-	it('should execute a mix of sync and async tasks sequentially', () => {
+	it('should execute a mix of immediate and async tasks sequentially', () => {
 		const q = new Queue(1);
 
 		const results: number[] = [];
 		for (let i = 0; i < 10; i++) {
 			if (i % 2 === 0) {
-				q.do(() => results.push(i));
+				q.doAsync(() => results.push(i));
 			} else {
-				q.doAsync(() =>
+				q.do(() =>
 					Promise.resolve()
 					.then( () => {
 						results.push(i)
@@ -80,7 +80,7 @@ describe('Queue', () => {
 		const timeStart = Date.now();
 		const results: number[] = [];
 		for (let i = 0; i < 10; i++) {
-			q.doAsync(() =>
+			q.do(() =>
 				wait(5)
 				.then( () => {
 					results.push(i)

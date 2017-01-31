@@ -29,7 +29,7 @@ class Queue {
 		}
 	}
 
-	doAsync(f: () => Promise<any> ): Promise<void>  {
+	do(f: () => Promise<any> ): Promise<void>  {
 		const waitForWorker = this._waitForFreeWorker();
 		waitForWorker
 		.then( (worker) => {
@@ -43,7 +43,7 @@ class Queue {
 		return waitForWorker.then( () => {});
 	}
 
-	do( f: () => any  ): Promise<void>  {
+	doAsync( f: () => any  ): Promise<void>  {
 		const waitForWorker = this._waitForFreeWorker();
 		waitForWorker
 		.then( (worker) => {
