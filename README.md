@@ -1,8 +1,14 @@
 # Queue-Jobs
 
-## A simple in-memory job queue with arbitrary concurrency.
+### A simple in-memory job queue with arbitrary concurrency.
 
 Queue any number of jobs, execute *n* of them at a time, and by notified when the queue is empty.
+
+## Installation
+
+```sh
+# npm install queue-jobs
+```
 
 ## Quick usage
 
